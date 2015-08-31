@@ -1,4 +1,9 @@
 /*****************************************************************************
+ * Course: CS 27500
+ * Name: Adam Joseph Cook
+ * Email: cook5@purduecal.edu
+ * Assignment: 1
+ *
  * The <CODE>TestDrive</CODE> Java application simulates a car being driven
  * depending on its provided fuel efficiency and fuel amount.
  *
@@ -17,10 +22,7 @@ public class TestDrive
 
         boolean mainDone = false;
         while (!mainDone) {
-            System.out.println("Please enter the fuel efficiency rating of the " +
-                    "car (in miles/gallon). To exit the application, " +
-                    "please enter zero.");
-            System.out.print("Fuel efficiency: ");
+            System.out.print("Enter fuel efficiency: ");
             double fuelEfficiency = sc.nextDouble();
             car = new Car(fuelEfficiency);
 
@@ -32,10 +34,7 @@ public class TestDrive
 
             boolean outerDone = false;
             while (!outerDone) {
-                System.out.println("Please enter the amount of fuel to add " +
-                        "(in gallons). To re-enter the fuel efficiency of the " +
-                        "car, please enter zero.");
-                System.out.print("Fuel amount to add: ");
+                System.out.print("Enter amount of fuel: ");
                 double fuelAmountToAdd = sc.nextDouble();
 
                 if (fuelAmountToAdd == 0) {
@@ -48,10 +47,7 @@ public class TestDrive
 
                     boolean innerDone = false;
                     while (!innerDone) {
-                        System.out.println("Please enter the travel distance to " +
-                                "simulate (in miles). To add some fuel to " +
-                                "the car, please enter zero.");
-                        System.out.print("Distance to travel: ");
+                        System.out.print("Enter distance to travel: ");
                         double distanceToTravel = sc.nextDouble();
 
                         if (distanceToTravel == 0) {
@@ -62,14 +58,12 @@ public class TestDrive
                             // Attempt to travel the distance provided with the
                             // car.
                             double distanceTraveled = car.drive(distanceToTravel);
-                            System.out.println();
-                            System.out.println("Distance traveled: " +
-                                    distanceTraveled);
-                            System.out.println("Current fuel level: " +
+                            System.out.println("   Distance actually " +
+                                              "traveled = " + distanceTraveled);
+                            System.out.println("   Current fuelLevel = " +
                                     car.getFuelLevel());
-                            System.out.println("Current odometer reading: " +
+                            System.out.println("   Current odometer = " +
                                     car.getOdometer());
-                            System.out.println();
                         }
                     }
                 }

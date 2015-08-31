@@ -1,4 +1,9 @@
 /**
+ * Course: CS 27500
+ * Name: Adam Joseph Cook
+ * Email: cook5@purduecal.edu
+ * Assignment: 1
+ *
  * The <CODE>Car</CODE> class is a representation of a Car object.
  * @author Adam Joseph Cook
  *  <A HREF="mailto:cook5@purduecal.edu"> (cook5@purduecal.edu) </A>
