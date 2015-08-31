@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>CS 27500 - Homework 1</title>
+   <meta name="description" content="CS 27500 homework 1.">
+   <meta name="author" content="Roger L. Kraft">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger.css" type="text/css">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger-printer.css" type="text/css" media="print">
+   <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+</head>
+
+<body>
+<header>
+   <a href="http://math.purduecal.edu/~rlkraft/" title="Roger L. Kraft">Roger L. Kraft</a>
+</header>
+
+<nav>
+   <div class="nav-block">
+      <a href="../cs27500.html">CS 27500</a><br>
+      <a href="../syllabus.html">Syllabus</a><br>
+      <a href="../class.html">Lectures and Readings</a><br>
+      <a href="../homework.html">Homework Assignments</a><br>
+   </div>
+   <div class="nav-block">
+      <a href="http://cs.purduecal.edu/~rlkraft/roger.html">Roger Kraft</a><br>
+      <a href="http://www.purduecal.edu/mcss/">Math & CS Department</a><br>
+      <a href="http://www.purduecal.edu/ems/">College of EMS</a><br>
+      <a href="http://www.purduecal.edu/">Purdue University Calumet</a><br>
+   </div>
+</nav>
+
+<div id="Content">
+<h1>
+CS 27500 - Programming Assignment 1
+</h1>
+
+<p>
+This assignment makes use of the files contained in this <a href="hw1.zip">zip file</a>.
+This assignment is due Wednesday, September 2.
+</p>
+
+<p>
+In this assignment you will write a class called <code>Car.java</code> that can "simulate" some of the behavior of a real car. This assignment is based on material from Sections 2.1 & 2.2 of our textbook (and what you learned in CS 12300). Download this <a href="hw1.zip">zip file</a> and un-zip it. In the zip file there is a copy of this web page, which you can read in your browser, and some files that you need for this assignment.
+</p>
+
+<p>
+Implement a class <code>Car</code>. A <code>Car</code> object should have three (private) instance variables, one for fuel efficiency (representing miles per gallon), one for fuel level (representing gallons), and a variable that acts as an odometer (representing miles). The fuel efficiency of a car should be specified as a parameter in a <code>Car</code> constructor and the constructor should set the fuel level and the odometer to zero. There should be <code>getFuelEfficiency()</code>, <code>getOdometer()</code>, and <code>getFuelLevel()</code> methods. There should also be a method <code>addFuel(double gallons)</code> which adds a specified amount to the fuel level and returns the new fuel level, and there should be a method <code>drive(double miles)</code> which simulates driving the car a specified distance. The <code>drive()</code> method should adjust the fuel level by the amount of fuel used, adjust the odometer by the amount of miles driven, and it should return the number of miles driven, which may be less than the number of miles specified if there is not enough fuel. (Notice that there are <it>no</it> <code>setFuelEfficiency()</code>, <code>setOdometer()</code>, and <code>setFuelLevel()</code> methods. The fuel efficiency field is immutable; once it is set by the constructor, it cannot be changed. The odometer should only be changeable by driving the car, as in a real car. The fuel level should only be changed by driving the car or by adding fuel.)
+</p>
+
+<p>
+Your <code>Car.java</code> file should include Javadoc specifications for the class and each method, as described on pages 6 - 9 and Appendix H of our textbook. Be sure to run the javadoc compiler on your <code>Car.java</code> file to produce a <code>Car.html</code> file.
+</p>
+
+<p>
+In the zip file there is a file <code>PreTestDrive.java</code>. This file tests the public interface of your <code>Car</code> class. After you have written your version of <code>Car.java</code>, you should be able to compile and run <code>PreTestDrive.java</code>. When you run it, it should report that there are no problems with your <code>Car</code> class.
+</p>
+
+<p>
+Write a client program <code>TestDrive.java</code> that uses your <code>Car</code> class. This program should prompt a user for a fuel efficiency, construct a <code>Car</code> object, prompt the user for an amount of fuel, put the fuel in the <code>Car</code> object, prompt the user for a distance to travel, <code>drive</code> the appropriate distance, and then report back to the user the distance actually traveled, the current fuel level, and the current odometer reading. Your program should let the user drive the car until the user enters a distance of zero. Then your program should prompt the user for an amount of fuel to add to the car and then let the user <code>drive</code> the car some more. If the user enters zero for the amount of fuel to add, then your program should prompt the user for a new fuel efficiency and construct a new <code>Car</code> object and let the user drive the new car. Your program should terminate if the user enters zero for the fuel efficiency.
+</p>
+
+<p>
+In the zip file there is a program <code>TestDriveDemo.class</code> that is a demonstration version of the client program you are to write. After you have written your version of <code>Car.java</code>, you should be able to run <code>TestDriveDemo.class</code>. Your version of <code>TestDrive.java</code> should work <b>exactly</b> like the demo version!
+</p>
+
+<p>
+As part of grading your assignment, I will use the program <code>PreTestDrive.java</code> (from the zip file), to test if your <code>Car</code> class implements the proper public interface as specified in the paragraphs above. I will also generate a Javadoc file from your <code>Car.java</code>. And then I will compile and run your version of <code>TestDrive.java</code> to make sure that it works exactly like <code>TestDriveDemo.class</code>.
+</p>
+
+<p>
+<a href="http://cs.purduecal.edu/~rlkraft/cs27500/handin.html">Turn in</a> a zip file called <code>CS275Hw1Surname.zip</code> (where <code>Surname</code> is your last name) containing your versions of <code>Car.java</code> and <code>TestDrive.java</code>.
+</p>
+
+<p>
+This assignment is due Wednesday, September 2.
+</p>
+
+</div>
+
+<footer>
+   <script language="JavaScript" type="text/javascript">
+      document.write("<font size=\"-2\"><i>Last modified on " + document.lastModified + ".<\/i><\/font>");
+   </script>
+   <br>
+   <a href="mailto:roger@purduecal.edu"><font size="-2"><i>compliments and criticisms</i></font></a>
+</footer>
+
+</body>
+</html>
