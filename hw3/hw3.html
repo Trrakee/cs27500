@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>CS 27500 - Homework 3</title>
+   <meta name="description" content="CS 27500 homework 3.">
+   <meta name="author" content="Roger L. Kraft">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger.css" type="text/css">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger-printer.css" type="text/css" media="print">
+   <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+</head>
+
+<body>
+<header>
+   <a href="http://math.purduecal.edu/~rlkraft/" title="Roger L. Kraft">Roger L. Kraft</a>
+</header>
+
+<nav>
+   <div class="nav-block">
+      <a href="../cs27500.html">CS 27500</a><br>
+      <a href="../syllabus.html">Syllabus</a><br>
+      <a href="../class.html">Lectures and Readings</a><br>
+      <a href="../homework.html">Homework Assignments</a><br>
+   </div>
+   <div class="nav-block">
+      <a href="http://cs.purduecal.edu/~rlkraft/roger.html">Roger Kraft</a><br>
+      <a href="http://www.purduecal.edu/mcss/">Math & CS Department</a><br>
+      <a href="http://www.purduecal.edu/ems/">College of EMS</a><br>
+      <a href="http://www.purduecal.edu/">Purdue University Calumet</a><br>
+   </div>
+</nav>
+
+<div id="Content">
+<h1>
+CS 27500 - Programming Assignment 3
+</h1>
+
+<p>
+This assignment makes use of the files contained in this <a href="hw3.zip">zip file</a>.
+This assignment is due Monday, October 19.
+</p>
+
+<p>
+This assignment is based on Programming Project 9 on page 249 of our textbook (but you don't need to follow any of the instructions given in that project).
+</p>
+
+<p>
+In the zip file <code>hw3.zip</code> there is a Java file, <code>IntLinkedSeq.java</code> and its Javadoc html file, <code>IntLinkedSeq.html</code>. In this assignment you will complete the source file <code>IntLinkedSeq.java</code> so that it implements the interface specified in <code>IntLinkedSeq.html</code>.
+</p>
+
+<p>
+The <code>IntLinkedSeq</code> abstract data type is similar to the <code>IntLinkedBag</code> abstract data type, so some of the implementation of <code>IntLinkedSeq</code> is similar to the equivalent implementation of <code>IntLinkedBag</code>. The main difference between the two data types is that a sequence "remembers" the order of all its elements, but a bag does not maintain any information about the order of its elements. Also, the sequence interface contains a few new methods that are not equivalent to any method from the bag interface.
+</p>
+
+<p>
+One big difference between your implementation of the <code>IntLinkedSeq</code> interface and the textbook's implementation of the <code>IntLinkedBag</code> interface is that in this assignment you must use a simpler definition of the <code>IntNode</code> interface. In the zip file <code>hw3.zip</code> there is a Java file, <code>IntNode.java</code> that implements a different version of <code>IntNode</code> from the one in the book. The version of <code>IntNode</code> in the zip file is designed to separate the responsibilities of a node object from the responsibilities of the data structure being built with the nodes. <em>Do not</em> make any changes to the file <code>IntNode.java</code>.
+</p>
+
+<p>
+Probably the hardest part of this assignment is the two methods <code>addAfter()</code> and <code>addBefore()</code>. There are several cases to consider within each method - does the sequence have a "current" element, is the sequence empty, are you positioned at the beginning or the end of the sequence? Be sure to test these two methods carefully (and draw pictures!).
+</p>
+
+<p>
+While you are doing this assignment, try to "use the interface to implement the interface". That is, try to implement methods in the interface by using more basic, or fundamental, methods from the interface. You need to think about which methods are the most basic. Then implement those first, and then start building other methods (as much as possible) from the basic ones.
+</p>
+
+<p>
+In the zip file <code>hw3.zip</code> there are several Java files, <code>TestIntLinkedSeq_ver*.java</code>, that you can use to test your implementation of the <code>IntLinkedSeq</code> public interface. The first file, <code>TestIntLinkedSeq_ver1.java</code>, tests the most important methods.
+</p>
+
+
+
+<p>
+<a href="http://cs.purduecal.edu/~rlkraft/cs27500/handin.html">Turn in</a> a zip file called <code>CS275Hw3Surname.zip</code> (where <code>Surname</code> is your last name) containing your version of <code>IntLinkedSeq.java</code>.
+</p>
+
+<p>
+This assignment is due Monday, October 19.
+</p>
+
+</div>
+
+<footer>
+   <script language="JavaScript" type="text/javascript">
+      document.write("<font size=\"-2\"><i>Last modified on " + document.lastModified + ".<\/i><\/font>");
+   </script>
+   <br>
+   <a href="mailto:roger@purduecal.edu"><font size="-2"><i>compliments and criticisms</i></font></a>
+</footer>
+
+</body>
+</html>
