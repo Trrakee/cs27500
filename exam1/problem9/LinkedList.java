@@ -24,15 +24,16 @@ class LinkedList
     {
         ListNode new_node = new ListNode();
         new_node.item = element;
-        if (size == 0)
-        {
-            // There is currently no ListNode's in the LinkedList.
-            new_node.next = null;
-
-        } else {
-            // There are ListNode's already in the LinkedList.
-            new_node.next = head;
-        }
+//        if (size == 0)
+//        {
+//            // There is currently no ListNode's in the LinkedList.
+//            new_node.next = null;
+//
+//        } else {
+//            // There are ListNode's already in the LinkedList.
+//            new_node.next = head;
+//        }
+        new_node.next = head;
         head = new_node;
         size++;
     }

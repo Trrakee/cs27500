@@ -42,7 +42,7 @@ public class IntArrayBag
             index++;
         }
 
-        if (found) {
+        if (found && !(dataCounts[index] == 0)) {
             // ** Element is already in the 'data' array.
 
             // Add element to the array.

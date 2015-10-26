@@ -1,7 +1,4 @@
-/**
-
- */
-public class TestIntArrayBag
+public class Problem8
 {
     public static void main(String[ ] args)
     {
@@ -122,4 +119,4 @@ public class TestIntArrayBag
 
         System.out.println("The IntArrayBag class passed all the tests.");
     }//main()
-}//TestIntArrayBag
+}//Problem8

@@ -42,11 +42,13 @@ public class IntArray
         int repeated_value = 0;
         int[] copy_A = new int[A.length];
         System.arraycopy(A, 0, copy_A, 0, A.length);
-        for (int index = 0; index < A.length; index++) {
-            if (A[index] == copy_A[index+1]) {
-                repeated_value = A[index];
+        int outer_index = 0;
+        for (int inner_index = 0; inner_index < A.length; inner_index++) {
+            if (A[outer_index] == copy_A[inner_index+1]) {
+                repeated_value = A[outer_index];
                 break;
             }
+            outer_index++;
         }
         return repeated_value;
     }

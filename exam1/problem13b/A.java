@@ -8,4 +8,9 @@ public class A
     {
         System.out.println("A doStuff() called.");
     }
+
+    public void doOtherStuff()
+    {
+        System.out.println("A doOtherStuff() called.");
+    }
 }

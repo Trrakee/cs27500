@@ -4,7 +4,12 @@ public class Problem9C
     {
         LinkedList list = new LinkedList();
 
+        System.out.println("** list.add(3).add(2).add(5).add(0).add(8)");
         list.add(3).add(2).add(5).add(0).add(8);
+        System.out.println(list);
+        System.out.println(list.getSize());
+        System.out.println("** list.remove()");
+        list.remove();
         System.out.println(list);
         System.out.println(list.getSize());
     }//main()
