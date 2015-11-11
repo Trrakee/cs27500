@@ -1,0 +1,49 @@
+Course: CS 27500
+Name: Adam Joseph Cook
+Email: cook5@purduecal.edu
+Assignment: 4
+
+*** Line 32 ***
+Pair<Color, String> p3 = new Pair<Color, String>( p2.setFirst("what").transpose() ).replaceFirst(Color.black);
+
+From previous statements in the Java program, the 'p2' reference variable points to an already existing (by the time
+that the statement on this line is encountered) Pair object with the 'first' instance field containing "the color is"
+value and the 'second' instance field referring to a 'Color.cyan' object.
+
+The runtime first changes the 'first' instance field on this existing Pair object to "what" with the inner
+'p2.setFirst("what")' expression. No new Pair objects are created here.
+
+The runtime then encounters the 'transpose()' method on the existing Pair object and, as a result of the 'transpose()'
+method design, creates a new Pair object with the objects (and types) from the previous Pair object reversed.
+
+The runtime then digests the 'new Pair<Color, String>( p2.setFirst("what").transpose() )' expression which utilizes
+the 'public Pair(Pair<T1, T2> pair)' constructor of the Pair class to create a new Pair object by consulting the
+instance fields of the Pair object previously created by executing the 'transpose()' method above.
+
+Finally, the runtime encounters the 'replaceFirst(Color.black)' method call which, by its design, creates a new
+Pair object containing the 'Color.black' (referred to by the 'first' instance field) and "what" (for the 'second'
+instance field).
+
+The p3 reference varialble points to this final Pair object on the heap.
+
+All in all, three (3) Pair objects were created by this line.
+
+See the first page of the 'Explaination - Java Memory States' PDF document for the resulting Java memory state.
+
+*** Lines 36-37 ***
+Pair<String, Pair<String,String>> p4 =
+                       new Pair<String, Pair<String, String>>("very", new Pair<String, String>("strange", "stuff") );
+
+The runtime first observes the 'new Pair<String, String>("strange", "stuff")' expression which creates a Pair object
+with the 'first' instance field set to "strange" String value and the 'second' instance field set to the "stuff" String
+value.
+
+Next, the runtime considers the entire 'new Pair<String, Pair<String, String>>("very", new Pair<String, String>("strange", "stuff") )'
+expression which creates an additional Pair object on the heap with its 'first' instance field set to the "very" String
+value and the 'second' instance field points to the Pair object created in the paragraph above.
+
+The p4 reference variable points to this aforementioned Pair object on the heap.
+
+Two (2) Pair objects were created.
+
+See the second page of the 'Explaination - Java Memory States' PDF document for the resulting Java memory state.

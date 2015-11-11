@@ -8,3 +8,4 @@ hs_err_pid*
 .idea/
 doc/
 .DS_Store
+out/

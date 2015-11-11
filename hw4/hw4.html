@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>CS 27500 - Homework 4</title>
+   <meta name="description" content="CS 27500 homework 4.">
+   <meta name="author" content="Roger L. Kraft">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger.css" type="text/css">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger-printer.css" type="text/css" media="print">
+   <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+</head>
+
+<body>
+<header>
+   <a href="http://math.purduecal.edu/~rlkraft/" title="Roger L. Kraft">Roger L. Kraft</a>
+</header>
+
+<nav>
+   <div class="nav-block">
+      <a href="../cs27500.html">CS 27500</a><br>
+      <a href="../syllabus.html">Syllabus</a><br>
+      <a href="../class.html">Lectures and Readings</a><br>
+      <a href="../homework.html">Homework Assignments</a><br>
+   </div>
+   <div class="nav-block">
+      <a href="http://cs.purduecal.edu/~rlkraft/roger.html">Roger Kraft</a><br>
+      <a href="http://www.purduecal.edu/mcss/">Math & CS Department</a><br>
+      <a href="http://www.purduecal.edu/ems/">College of EMS</a><br>
+      <a href="http://www.purduecal.edu/">Purdue University Calumet</a><br>
+   </div>
+</nav>
+
+<div id="Content">
+<h1>
+CS 27500 - Programming Assignment 4
+</h1>
+
+<p>
+This assignment makes use of the files contained in this <a href="hw4.zip">zip file</a>.
+This assignment is due Wednesday, November 11.
+</p>
+
+<p>
+This assignment is based on the material from Sections 5.2 and 5.3 from the course textbook.
+</p>
+
+<p>
+You are to implement a generic <code>Pair</code> class. Your <code>Pair</code> class should be defined as <code>Pair&lt;T1, T2&gt;</code> and it should contain two (private) instance fields called <code>first</code> (of type <code>T1</code>) and <code>second</code> (of type <code>T2</code>). Your <code>Pair</code> class should contain three constructors. There should be a default constructor that sets both fields to <code>null</code>. There should be a two item constructor that takes references to objects of type <code>T1</code> and <code>T2</code> and points the two instance fields at these two objects. And there should be a one item constructor that takes a reference to a <code>Pair</code> object of the same type as the one being constructed and points the instance fields of the item being constructed at the two objects contained in the given <code>Pair</code> object.
+</p>
+
+<p>
+Your <code>Pair</code> class should contain appropriate <code>getFirst()</code>, <code>setFirst()</code>, <code>getSecond()</code> and <code>setSecond()</code> methods. The <code>setFirst()</code> and <code>setSecond()</code> methods should not be void methods, they should return a reference to the current object (so that other method calls can be chained).
+</p>
+
+<p>
+There should be a method called <code>transpose()</code> that returns a reference to a new <code>Pair</code> object of type <code>Pair&lt;T2,T1&gt;</code> where the objects in the new <code>Pair</code> are the same as the objects in the current pair, but in the opposite order.
+</p>
+
+<p>
+Write a method called <code>replaceFirst()</code> that takes a single argument that is a reference to an object and returns a new <code>Pair</code> object where the first item in the new pair is the argument object and the second item in the new pair is the second item from the <code>this</code> object. This method will be a "generic method" (Section 5.2 of the textbook) in that it will need its own "local" type parameter (a type parameter different from the <code>T1</code> and <code>T2</code> type parameters at the beginning of the <code>Pair</code> class). Write a similarly defined <code>replaceSecond()</code> method.
+</p>
+
+<p>
+Have your <code>Pair&lt;T1,T2&gt;</code> class override the
+    <center><code>public boolean equals(Object o)</code></center>
+method from the <code>Object</code> class. Your version of <code>equals()</code> should return true when the argument <code>o</code> is not <code>null</code> and the argument <code>o</code> is a <code>Pair</code> object and the items in <code>o</code> are equal to the items in the <code>this</code> pair.
+</p>
+
+<p>
+Your <code>Pair</code> class should also contain an appropriate <code>toString()</code> method.
+</p>
+
+<!--
+<p>
+Have your <code>Pair&lt;T1,T2&gt;</code> class implement the parameterized <code>Comparable&lt;T&gt;</code> interface. That way, every <code>Pair&lt;T1,T2&gt;</code> object will be able to compare itself to another <code>Pair&lt;T1, T2&gt;</code> object of the exact same type (but not to a <code>Pair</code> object of a different type, say <code>Pair&lt;T3,T4&gt;</code>). Notice that, in order for a <code>Pair&lt;T1,T2&gt;</code> object to be able to compare itself to another <code>Pair&lt;T1,T2&gt;</code> object, the objects contained in the Pairs must themselves be comparable. So you need to express the fact that types <code>T1</code> and <code>T2</code> must themselves implement the <code>Comparable</code> interface. Here is how two <code>Pair</code> objects should be compared. I will use the example of pairs of numbers, but the idea is the same for any other type of pairs. If one pair contains [a,b] and the other pair contains [c,d], the we say that [a,b] equals [c,d] if a=c and b=d. We say that [a,b] &lt; [c,d] if a&lt;c or b&lt;d. Notice that this means that [a,b] &gt; [c,d] if a &gt;= c and b &gt;= d and [a,b] is not equal to [c,d].
+</p>
+
+<p>
+Add a method with the following signature to your <code>Pair&lt;T1,T2&gt;</code> class.
+<center><code>public Pair&lt;T1,T2&gt; maxPair( Pair&lt;T1,T2&gt; p )</code></center>
+What this method should do is return a new <code>Pair</code> object where the first entry in the new <code>Pair</code> is the maximum of the two original first items (that is, the first item in the <code>this</code> object and the first item in the <code>p</code> object). And the second item in the new <code>Pair</code> object should be the maximum of the two original second items.
+</p>
+ -->
+
+<p>
+In the zip file along with this file there is a program <code>TestPairs.java</code> that tests your implementation of the <code>Pair</code> class. <em>Do not</em> make any changes to the <code>TestPairs.java</code> file. The <code>TestPairs.java</code> program will compile correctly when you have completed your implementation of the <code>Pair</code> class. If the <code>TestPairs.java</code> program does not compile correctly, then you need to fix something in your implementation of <code>Pair</code>. When the <code>TestPairs.java</code> program runs, it should produce output like that contained in the file <code>output.txt</code>.
+</p>
+
+<p>
+When you have finished implementing the <code>Pair</code> class, in a text file called <code>Explanation.txt</code> write an explanation of exactly what the statement on line number 32 from <code>TestPairs.java</code> does. In particular, explain how many objects are created by that line of code and what happens to each one. Also write an explanation of what the statement on lines numbered 36-37 does. Your two explanations should explain in detail what every part of each statement does.
+</p>
+
+<p>
+<a href="http://cs.purduecal.edu/~rlkraft/cs27500/handin.html">Turn in</a> a zip file called <code>CS275Hw4Surname.zip</code> (where <code>Surname</code> is your last name) containing your version of <code>Pair.java</code> and your text file <code>Explanation.txt</code> containing explanations of the two statements from <code>TestPair.java</code>.
+</p>
+
+<p>
+This assignment is due Wednesday, November 11.
+</p>
+
+</div>
+
+<footer>
+   <script language="JavaScript" type="text/javascript">
+      document.write("<font size=\"-2\"><i>Last modified on " + document.lastModified + ".<\/i><\/font>");
+   </script>
+   <br>
+   <a href="mailto:roger@purduecal.edu"><font size="-2"><i>compliments and criticisms</i></font></a>
+</footer>
+
+</body>
+</html>
