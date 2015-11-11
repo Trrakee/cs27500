@@ -1,0 +1,27 @@
+p1 ==> [5,test]
+p1.transpose() ==> [test,5]
+p1 ==> [12,test]
+p2 ==> [the color is,java.awt.Color[r=0,g=255,b=255]]
+p2.getFirst()  ==> the color is
+p2.getSecond() ==> java.awt.Color[r=0,g=255,b=255]
+p3 ==> [java.awt.Color[r=0,g=0,b=0],what]
+p2 ==> [what,java.awt.Color[r=0,g=255,b=255]]
+p4 ==> [very,[strange,stuff]]
+p5 ==> [orange,10]
+p6 ==> [null,null]
+p6 ==> [10,orange]
+(p6 == p5.transpose()) ==> false
+p6.equals(p5.transpose()) ==> true
+p5.replaceFirst("pear") ==> [pear,10]
+p5 ==> [orange,10]
+p5.replaceSecond("grape") ==> [orange,grape]
+p5 ==> [orange,10]
+p5.replaceFirst(3.14) ==> [3.14,10]
+p5.replaceFirst(3) ==> [3,10]
+p5.replaceFirst('@').transpose() ==> [10,@]
+false
+false
+false
+true
+true
+true
