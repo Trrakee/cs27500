@@ -1,0 +1,118 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>CS 27500 - Homework 5</title>
+   <meta name="description" content="CS 27500 homework 5.">
+   <meta name="author" content="Roger L. Kraft">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger.css" type="text/css">
+   <link rel="stylesheet" href="http://math.purduecal.edu/~rlkraft/roger-printer.css" type="text/css" media="print">
+   <!--[if lt IE 9]>
+       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+   <![endif]-->
+</head>
+
+<body>
+<header>
+   <a href="http://math.purduecal.edu/~rlkraft/" title="Roger L. Kraft">Roger L. Kraft</a>
+</header>
+
+<nav>
+   <div class="nav-block">
+      <a href="../cs27500.html">CS 27500</a><br>
+      <a href="../syllabus.html">Syllabus</a><br>
+      <a href="../class.html">Lectures and Readings</a><br>
+      <a href="../homework.html">Homework Assignments</a><br>
+   </div>
+   <div class="nav-block">
+      <a href="http://cs.purduecal.edu/~rlkraft/roger.html">Roger Kraft</a><br>
+      <a href="http://www.purduecal.edu/mcss/">Math & CS Department</a><br>
+      <a href="http://www.purduecal.edu/ems/">College of EMS</a><br>
+      <a href="http://www.purduecal.edu/">Purdue University Calumet</a><br>
+   </div>
+</nav>
+
+<div id="Content">
+<h1>
+CS 27500 - Programming Assignment 5
+</h1>
+
+<p>
+This assignment makes use of the files contained in this <a href="hw5.zip">zip file</a>.
+This assignment is due Monday, November 23.
+</p>
+
+<p>
+This assignment is based on the material from Sections 5.5 and 5.6 from the course textbook.
+</p>
+
+<p>
+Create a (parameterized) class <code>WeirdArrayr&lt;T&gt;</code> that implements the <code>Iterable&lt;T&gt;</code> interface. The <code>WeirdArray&lt;T&gt;</code> class should contain a private reference to an array that will hold references to objects of type <code>T</code>. The <code>WeirdArray&lt;T&gt;</code> class should have a constructor that takes a single integer <code>n</code> and creates an empty array of size <code>n</code>. The <code>WeirdArray&lt;T&gt;</code> class should have a <code>getElement(int i)</code> method that returns a reference to the element of type <code>T</code> stored at index <code>i</code> in the private array, and a <code>setElement(int i, T e)</code> method that puts a reference to a <code>T</code> object at index <code>i</code> in the private array. The <code>WeirdArray&lt;T&gt;</code> class should have a <code>getLength()</code> method that returns the length of the private array. And, since <code>WeirdArray&lt;T&gt;</code> implements the <code>Iterable&lt;T&gt;</code> interface, the <code>WeirdArray&lt;T&gt;</code> class should have a <code>iterator()</code> method that returns a reference to a <code>Iterator&lt;T&gt;</code> object. This method should construct, and then return a reference to, a <code>WeirdIterator&lt;T&gt;</code> object. The <code>WeirdIterator&lt;T&gt;</code> class is described in the next paragraph.
+</p>
+
+<p>
+Create a <code>WeirdIterator&lt;T&gt;</code> class that implements the <code>Iterator&lt;T&gt;</code> interface. Here is how your iterator should iterate through the array. If the array has an odd number of items, return the middle item first, then the item just before the middle item, then the item just after the middle, then the item two places before the middle, then the item two places after the middle, then the item three places before the middle, etc. If the array has an even number of items, first return the last item of the first half of the array, then the first item of the second half of the array, then the second to last item of the first half of the array, then the second item of the second half of the array, then the third to last item from the first half, etc. (Notice that in both cases, the iterator starts in the "middle" of the array and then works it way towards the "ends" of the array.)
+</p>
+
+<p>
+Your <code>WeirdIterator&lt;T&gt;</code> class should have one constructor that takes a reference to a <code>WeirdArray&lt;T&gt;</code> object (the object that it will iterate through). Since the <code>WeirdIterator&lt;T&gt;</code> class implements the <code>Iterator&lt;T&gt;</code> interface, the <code>WeirdIterator&lt;T&gt;</code> class has three methods, <code>hasNext()</code>, <code>next()</code>, and <code>remove()</code>. The <code>remove()</code> method does not have any meaning in this example, so it should throw a <code>UnsupportedOperationException</code>. The <code>hasNext()</code> and <code>next()</code> methods are what actually implement the iterator as described above. In order to implement the iterator, your <code>WeirdIterator&lt;T&gt;</code> class can have any fields or extra methods that you might think are useful. You will definitely need at least a field to remember which <code>WeirdArray</code> is being iterated and a field to remember the current position (or index) of the iterator as it iterates through the array.
+</p>
+
+<p>
+In the definition of your <code>WeirdArray&lt;T&gt;</code> class, there is one small technicality that needs to be worked around (see pages 263 - 265 of the textbook). Java does not allow the construction of arrays whose type is given by a type parameter (like <code>T</code>). In other words, you cannot have a line of code like this.
+</p>
+<pre>
+     T[] theArray = new T[n];
+</pre>
+<p>
+when <code>T</code> is a type parameter. The declaration <code>T[] theArray</code> is not the problem, the problem is with the creation of the array (using <code>new</code>). You get around this limitation by creating an array of type <code>Object</code>
+</p>
+<pre>
+     Object[] theArray = new Object[n];
+</pre>
+<p>
+and then using a cast when a method needs to return an element from within the array. The resulting code will work correctly, but unfortunately the compiler will complain about it by issuing warnings of "unchecked casts". This is one of the few places in your generic code where it is OK to use the <code>@SuppressWarnings("unchecked")</code> annotation.
+</p>
+
+<p>
+In the zip file there is a program <code>TestIterator.java</code> that tests your implementations of the <code>WeirdArray&lt;T&gt;</code> and <code>WeirdIterator&lt;T&gt;</code> classes. <em>Do not</em> make any changes to the <code>TestIterator.java</code> file. When <code>TestIterator.java</code> runs, it should produce output like that contained in the file <code>test_output.txt</code>.
+</p>
+
+<p>
+When you have <code>WeirdArray&lt;T&gt;</code> and <code>WeirdIterator&lt;T&gt;</code> working, implement a second iterator, <code>WeirdIterator2&lt;T&gt;</code>, for the <code>WeirdArray&lt;T&gt;</code> class. Here is how your second iterator should iterate through the array. The iterator should return the first element of the array first and it should return the last element of the array second, and it should then return the second element, followed by the second to last element, then the third element, followed by the third from last element, etc. The iterator should stop when it gets to the "middle" of the array.
+</p>
+
+<p>
+In the zip file there is a program <code>TestIterator_2.java</code> that tests your implementation of the <code>WeirdIterator2&lt;T&gt;</code> class. <em>Do not</em> make any changes to the <code>TestIterator_2.java</code> file. When <code>TestIterator_2.java</code> runs, it should produce output like that contained in the file <code>test_output_2.txt</code>.
+</p>
+
+<p>
+The reason for designing two iterators is to help you understand why the Java designers created the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Iterable.html">Iterable</a> and <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html">Iterator</a> interfaces the way they did. At first, it would seem more natural to have the <code>hasNext()</code> and <code>next()</code> methods in the <code>Iterable</code> interface so that an iterable collection would know how to iterate through itself. But then there could be only one way to iterate through a specific collection (like <code>WeirdAray</code>), the way built into the collection.
+</p>
+
+<p>
+By having the <code>iterator()</code> method of the <code>Iterable</code> interface return an <code>Iterator</code> object, and then having the <code>hasNext()</code> and <code>next()</code> methods in the <code>Iterator</code> interface, it is possible to separate the way you iterate through a container from the container itself. In fact, you can even design an <code>Iterator</code> for a container that is not <code>Iterable</code> (how?). When a container is <code>Iterable</code>, what that really means is that the container has a preferred way to be iterated (using the <code>Iterator</code> returned by the <code>iterator()</code> method). But if we need to, we can define multiple other ways to iterate through the container type by defining multiple <code>Iterator</code> classes that all take the specific container class in their constructors.
+</p>
+
+<p>
+<a href="http://cs.purduecal.edu/~rlkraft/cs27500/handin.html">Turn in</a> a zip file called <code>CS275Hw5Surname.zip</code> (where <code>Surname</code> is your last name) containing your versions of <code>WeirdArray.java</code>, <code>WeirdIterator.java</code>, and <code>WeirdIterator2.java</code>.
+</p>
+
+<p>
+This assignment is due Monday, November 23.
+</p>
+
+</div>
+
+<footer>
+   <script language="JavaScript" type="text/javascript">
+      document.write("<font size=\"-2\"><i>Last modified on " + document.lastModified + ".<\/i><\/font>");
+   </script>
+   <br>
+   <a href="mailto:roger@purduecal.edu"><font size="-2"><i>compliments and criticisms</i></font></a>
+</footer>
+
+</body>
+</html>
