@@ -17,5 +17,6 @@ public class Problem18
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
+        System.out.println(stack.pop());
     }//main()
 }//Problem18

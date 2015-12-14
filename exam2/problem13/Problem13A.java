@@ -13,23 +13,31 @@ public class Problem13A
         System.out.println(Expression.isBalanced(expression2));
         System.out.println("true Expected");
         System.out.println("**********************");
-        String expression3 = "( ( )";
+        String expression3 = "( ) )";
         System.out.println(Expression.isBalanced(expression3));
+        System.out.println("false Expected");
+        System.out.println("**********************");
+        String expression4 = "( ( )";
+        System.out.println(Expression.isBalanced(expression4));
+        System.out.println("true Expected");
+        System.out.println("**********************");
+        String expression5 = "( ) ( (";
+        System.out.println(Expression.isBalanced(expression5));
         System.out.println("true Expected");
         System.out.println("**********************");
         System.out.println("");
 
         // THIRD PART - LOOKING FOR FALSE NEGATIVES
-        String expression4 = "( )";
-        System.out.println(Expression.isBalanced(expression4));
-        System.out.println("true Expected");
-        System.out.println("**********************");
-        String expression5 = "( ( ) )";
-        System.out.println(Expression.isBalanced(expression5));
-        System.out.println("true Expected");
-        System.out.println("**********************");
-        String expression6 = "( ( ) ( ) )";
+        String expression6 = "( )";
         System.out.println(Expression.isBalanced(expression6));
+        System.out.println("true Expected");
+        System.out.println("**********************");
+        String expression7 = "( ( ) )";
+        System.out.println(Expression.isBalanced(expression7));
+        System.out.println("true Expected");
+        System.out.println("**********************");
+        String expression8 = "( ( ) ( ) )";
+        System.out.println(Expression.isBalanced(expression8));
         System.out.println("true Expected");
         System.out.println("**********************");
     }//main()

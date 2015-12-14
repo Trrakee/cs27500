@@ -8,6 +8,11 @@ public class Queue<T>
     public void add(T item)
     {
         forAdding.push(item);
+
+        // DEBUG
+//        System.out.println("QUEUE DEBUG - ADD METHOD");
+//        System.out.println(forAdding.toString());
+//        System.out.println(forRemoving.toString());
     }
 
     public T remove()
@@ -22,7 +27,7 @@ public class Queue<T>
         result = forRemoving.pop();
 
         // DEBUG
-//        System.out.println("QUEUE DEBUG");
+//        System.out.println("QUEUE DEBUG - REMOVE METHOD");
 //        System.out.println(forAdding.toString());
 //        System.out.println(forRemoving.toString());
 
